@@ -382,11 +382,11 @@ function close(){
                     <div>
                     <div class="text-body-1 font-weight-medium">{{ orderProductName }}</div>
                     <div class="text-caption text-medium-emphasis">
-                        {{ orderQuantity }} × ${{ orderPrice.toFixed(2) }}
+                        {{ orderQuantity }} × Kes{{ orderPrice.toFixed(2) }}
                     </div>
                     </div>
                     <div class="text-body-1 font-weight-medium text-right">
-                    ${{ subtotal }}
+                    Kes{{ subtotal }}
                     </div>
                 </div>
                 </v-list-item>
@@ -399,7 +399,7 @@ function close(){
             <v-card-text class="pb-6">
             <div class="d-flex justify-space-between mb-2">
                 <span class="text-body-2 text-medium-emphasis">Subtotal</span>
-                <span class="text-body-2">${{ subtotal }}</span>
+                <span class="text-body-2">kes{{ subtotal }}</span>
             </div>
             <div class="d-flex justify-space-between mb-4">
                 <span class="text-body-2 text-medium-emphasis">Delivery Fee</span>
@@ -407,7 +407,7 @@ function close(){
             </div>
             <div class="d-flex justify-space-between align-center pt-2 border-top">
                 <span class="text-subtitle-1 font-weight-bold">Total Amount</span>
-                <span class="text-h6 font-weight-bold text-primary">${{ totalAmount }}</span>
+                <span class="text-h6 font-weight-bold text-primary">Kes{{ totalAmount }}</span>
             </div>
             </v-card-text>
         </v-card>

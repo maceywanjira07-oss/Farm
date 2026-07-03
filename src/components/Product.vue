@@ -4,16 +4,18 @@ import { useProductStore } from '../stores/product'
 import { useCartStore } from '../stores/cart'
 import { useOrdersStore } from '../stores/orders'
 import { useRouter } from 'vue-router'
+import ProductDetail from './ProductDetail.vue'
 
 const router = useRouter()
 const productStore = useProductStore()
 const ordersStore = useOrdersStore()
 const product= productStore.product
 const isAuthenticated = localStorage.getItem('isAuthenticated')
+const showDetailDialog = ref(false)
 
 function view(product){
    productStore.updateSelectedProduct(product) // keep track of the selected item
-    router.push('/product_detail')
+   showDetailDialog.value = true
 }
 
 //cart
@@ -88,6 +90,10 @@ const handleRemove = (productId) => {
             </v-col>
         </v-row>
     </v-container>
+
+    <v-dialog v-model="showDetailDialog" max-width="900" persistent>
+        <ProductDetail @close="showDetailDialog = false" />
+    </v-dialog>
 
     <!-- Checkout -->
      <v-dialog v-model="dialog" max-width="600">
